@@ -1,0 +1,68 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>计算器</title>
+<script type="text/javascript">
+function compute(obj){
+	var num1,num2,result;
+	num1=parseFloat(document.myform.txtNum1.value);
+	num2=parseFloat(document.myform.txtNum2.value);
+	  switch(obj){
+		  case"+":
+		  result=num1+num2;
+		 	 break; 
+		  case"-":
+		  result=num1-num2;
+		   break;
+		  case"*":
+		  result=num1*num2;
+		   break;
+		  case"/":
+		  if(num2!=0){
+		  result=num1/num2;}
+		  else{
+		   result="除数不能为0，请重新输入";
+		  }
+		  break;
+		  }	
+	document.myform.txtResult.value=result;
+	}
+</script>
+
+<style>
+#oo{width:200px;
+	height:170px;
+	background:#0FF;
+	}
+</style>
+</head>
+<body>
+<div id="oo">
+ <form action ="" method ="post" name="myform" id="myform">
+            <tr>
+                <td>第一个数</td>
+                <td colspan="3"><input name ="txtNum1" type="text" class="textbaroder" id="txtNum1" size ="25" /></td>
+            </tr>
+             <tr>
+                <td>第二个数</td>
+                <td colspan="3"><input name ="txtNum2" type="text" class="textbaroder" id="textNum2" size ="25" /></td>
+            </tr>
+<tr>
+ <td>
+   <td><input name="addButton2" type="button" id="addButton2" value="  ＋  " onClick="compute('+')"></td>
+    <td><input name="subButton2" type="button" id="subButton2" value="  －  " onClick="compute('-')"></td>
+    <td><input name="mulButton2" type="button" id="mulButton2" value="  ×  " onClick="compute('*')"></td>
+    <td><input name="divButton2" type="button" id="divButton2" value="  ÷  " onClick="compute('/')"></td>
+</tr>
+<tr>
+<td>计算结果</td>
+<td colspan="3">
+<input name="txtResult" type="text" id="txtResult" size="25">
+</td>
+</tr>
+ </form>
+ </div>
+</body>
+</html>
